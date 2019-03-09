@@ -1,0 +1,220 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch CLI Program",
+            "program": "${workspaceFolder}/VGMCLI\\index.js",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Web Server",
+            "program": "${workspaceFolder}/VGMGame/server.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - Launch",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/event-Launch.json",
+                "-t",
+                "30"
+            ]
+        },
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - Launch w-data",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/event-LaunchWithDataUncompleteTemplate.json",
+                "-t",
+                "30"
+            ]
+        },
+
+
+        
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - Add Rule",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/event-addFullRule.json",
+                "-t",
+                "30"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - Action",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/event-addAction.json",
+                "-t",
+                "30"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - add Event",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/event-addEvent.json",
+                "-t",
+                "30"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - add Value",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/event-addValue.json",
+                "-t",
+                "30"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - getCode",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/event-getCode.json",
+                "-t",
+                "30"
+            ]
+        }
+        ,
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - new game",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/newGame.json",
+                "-t",
+                "30"
+            ]
+        } ,
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - help",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/help.json",
+                "-t",
+                "30"
+            ]
+        } ,
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - step1 slow",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/step1-slow.json",
+                "-t",
+                "30"
+            ]
+        } ,
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - direct ask",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/directAsk.json",
+                "-t",
+                "30"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Alexa Test - what is action",
+            "program": "${env:AppData}/npm/node_modules/lambda-local/bin/lambda-local",
+            "args": [
+                "-l",
+                "VGMAlexa/index.js",
+                "-h",
+                "handler",
+                "-e",
+                "VGMAlexa/test/whatIsAction.json",
+                "-t",
+                "30"
+            ]
+        }
+
+    ]
+}

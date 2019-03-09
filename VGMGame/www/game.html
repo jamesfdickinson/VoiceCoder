@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/w3.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43146845-23"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43146845-23');
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+
+        .header {
+            font-size: 3em;
+            background-color: azure;
+        }
+
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0px 20px 0px 20px;
+
+        }
+
+        .tip {
+            margin: 5px 0;
+        }
+
+        #gameContainer {
+            width: 100%;
+            max-height: 600px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        canvas {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+        }
+
+        input {
+            width: 100%;
+            font-size: 1em;
+            margin: 2px 0px;
+            box-sizing: border-box;
+        }
+
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            margin: 10px 0px;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+        }
+
+        blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+
+        blockquote p {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w3-bar topBar-white ">
+        <a class="w3-bar-item w3-button  w3-left w3-hover-white topBar-white" href="./">
+            <div class="hamburgerMenu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </a>
+        <!-- <a href="/" class="w3-bar-item w3-button  w3-hover-white">Voice Coder</a> -->
+        <!-- <a href="#tips" class="w3-bar-item w3-button  w3-hover-white">Tips</a>
+        <a href="#rules" class="w3-bar-item w3-button  w3-hover-white">Rules</a> -->
+        <a href="./" class="w3-bar-item w3-button  w3-hover-white">Home</a>
+        <a href="help.html" class="w3-bar-item w3-button  w3-hover-white">How it Works</a>
+
+    </div>
+    <!-- <div class="header">Back Games</div> -->
+    <div id="gameContainer"></div>
+    <div class="content">
+
+        <!-- <div>
+            <input type="text" id="accessCode" />
+            <input type="button" value="Load" />
+        </div> -->
+
+        <div id="tips">
+            <blockquote>
+                <p id="tip" class="tip"></p>
+            </blockquote>
+        </div>
+        <!-- <div>
+            <p>
+                <input type="button" value="Reload" onClick="window.location.reload()" />
+            </p>
+        </div> -->
+        <div>
+            <p>Rules:</p>
+            <ul id="rules">
+                <li>No Rules added yet, you need to add them.</li>
+            </ul>
+        </div>
+        <!-- <div>
+            <p>
+                <input type="button" value="Reload" onClick="window.location.reload()" />
+            </p>
+        </div> -->
+
+        <div id="help">
+            <p>Help:</p>
+            <ul>
+                <li>Say, "Alexa, open Voice Coder".</li>
+                <li>Say, "Add rule" to add a rule</li>
+                <li>Say, "New game" to start a new game.</li>
+                <li>Say, "List all events", to list all events.</li>
+                <li>Say, "Alexa, ask Voice Coder to ..." to skip opening the skill.</li>
+
+            </ul>
+
+            </p>
+        </div>
+    </div>
+    <script src="phaser.min.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>

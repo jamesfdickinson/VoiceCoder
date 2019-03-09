@@ -1,0 +1,3 @@
+Zip VGMAlexa and VMGCore
+Upload to aws lambda GameMakerAleax
+https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions/GameMakerAlexa?tab=graph

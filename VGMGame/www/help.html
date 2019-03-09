@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/w3.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43146845-23"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43146845-23');
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+
+        .header {
+            font-size: 3em;
+            background-color: azure;
+        }
+
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0px 20px 0px 20px;
+
+        }
+
+        .tip {
+            margin: 5px 0;
+        }
+
+        #gameContainer {
+            width: 100%;
+            max-height: 600px;
+
+        }
+
+        canvas {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+        }
+
+        input {
+            width: 100%;
+            font-size: 1em;
+            margin: 2px 0px;
+            box-sizing: border-box;
+        }
+
+        blockquote {
+            background: #f9f9f9;
+            border-left: 10px solid #ccc;
+            margin: 1.5em 10px;
+            margin: 10px 0px;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+        }
+
+        blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+
+        blockquote p {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w3-bar topBar-white ">
+        <a class="w3-bar-item w3-button  w3-left w3-hover-white topBar-white" href="./">
+            <div class="hamburgerMenu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </a>
+        <!-- <a href="/" class="w3-bar-item w3-button  w3-hover-white">Voice Coder</a> -->
+        <!-- <a href="#tips" class="w3-bar-item w3-button  w3-hover-white">Tips</a>
+        <a href="#rules" class="w3-bar-item w3-button  w3-hover-white">Rules</a> -->
+        <a href="./" class="w3-bar-item w3-button  w3-hover-white">Home</a>
+        <a href="help.html" class="w3-bar-item w3-button  w3-hover-white">How it Works</a>
+
+    </div>
+
+    <div class="content">
+
+        <h1>How it Works</h1>
+        <div id="help">
+            <p>To get started. Say, "Alexa open Voice Coder" or go to <a href="https://www.amazon.com/dp/B07HFWQPKN">https://www.amazon.com/dp/B07HFWQPKN</a>
+                and enable the skill.</p>
+            <p>
+                Voice Coder helps you learn about coding while creating your own game with your voice. The game starts
+                without any logic or rules. Your job
+                is to program rules. </p>
+            <p> Rules include events, actions, and sometimes values. Events are when something happens. Actions do
+                stuff, like
+                move, play a sound, or give points. You can add a new rule by saying, "add new rule".
+            </p>
+            <p> Once your game is created, you can play it on your mobile or desktop computer. To play your game, go
+                to,
+                <emphasis level="moderate">voice coder dot net</emphasis> and enter your access code. You can share you
+                created game with other with
+                that same code. Just ask me for your access code.
+            </p>
+            <ul style="padding:0 0 0 18px;">
+                <li>Say "Alexa, open Voice Coder" to get started</li>
+                <li>Say, "Add rule" to add a rule</li>
+                <li>Say, "New game" to start a new game.</li>
+                <li>Say, "List all events", to list all the events.</li>
+                <li>Say, "Alexa, ask Voice Coder to ..." to skip opening the skill.</li>
+                <li>Say, "Alexa, ask Voice Coder to add rule when start set background to moon".</li>
+            </ul>
+        </div>
+        <p>
+            This was built this for Alexa Skills Challenge: Tech for Good. <a href="https://devpost.com/software/code-by-voice">https://devpost.com/software/code-by-voice</a>
+            . More details about how it was built can be found there.
+        </p>
+        <div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/JED4TVYvoEQ" frameborder="0" allow="autoplay; encrypted-media"
+                allowfullscreen></iframe>
+        </div>
+        <p> Feedback welcome: <a href="mailto:voicecoder@jdsoftwarellc.com">voicecoder@jdsoftwarellc.com</a></p>
+    </div>
+
+</body>
+
+</html>

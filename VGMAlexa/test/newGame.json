@@ -1,0 +1,80 @@
+{
+	"version": "1.0",
+	"session": {
+		"new": false,
+		"sessionId": "amzn1.echo-api.session.6ba39de8-24f3-4899-919c-bd0d34ad51a9",
+		"application": {
+			"applicationId": "amzn1.ask.skill.1d72095c-d13d-452f-9446-56f840f71d75"
+		},
+		"attributes": {
+			"data": {
+				"name": null,
+				"rules": [
+					{
+						"event": "start",
+						"action": "move forward",
+						"value": "fast"
+					},
+					{
+						"event": "start",
+						"action": "set background",
+						"value": "moon"
+					},
+					{
+						"event": "tap",
+						"action": "flap",
+						"value": "small"
+					},
+					{
+						"event": "start",
+						"action": "add points"
+					},
+					{
+						"event": "hit star",
+						"action": "add points"
+					},
+					{
+						"event": "tap",
+						"action": "set background",
+						"value": "random"
+					}
+				],
+				"author": null,
+				"accessCode": "8K49",
+				"context": null,
+				"currentRule": null
+			},
+			"state": null
+		},
+		"user": {
+			"userId": "amzn1.ask.account.AE6GFTCISNKZGM7GXODUDEWWTTVJOSDQKP3SQI2YNZOV2OTZNWFTJAW4YL5R5KS6LOSTYKU35ZWMTKANXVZR3CMBYU4MMGGC4NGKZE7V5MFGJX72VQ4VJXA3BCL5GPFIDLWQTKOY3XXV4E6FNO6MEU7RKWAAHTJJUS5TQ4AKGEOE2FN6277UFYZQXV2SQBPBGEO2ZLVQLCIYQIA"
+		}
+	},
+	"context": {
+		"System": {
+			"application": {
+				"applicationId": "amzn1.ask.skill.1d72095c-d13d-452f-9446-56f840f71d75"
+			},
+			"user": {
+				"userId": "amzn1.ask.account.AE6GFTCISNKZGM7GXODUDEWWTTVJOSDQKP3SQI2YNZOV2OTZNWFTJAW4YL5R5KS6LOSTYKU35ZWMTKANXVZR3CMBYU4MMGGC4NGKZE7V5MFGJX72VQ4VJXA3BCL5GPFIDLWQTKOY3XXV4E6FNO6MEU7RKWAAHTJJUS5TQ4AKGEOE2FN6277UFYZQXV2SQBPBGEO2ZLVQLCIYQIA"
+			},
+			"device": {
+				"deviceId": "amzn1.ask.device.AGGUPCOIDV2ZEFVY6SJUANPIT6N55QQBTNS6G3Z764DGHDR6KRGYDPIHW2U22YXJUZRS6S75ACJIL3GR3B2MFSFNHKGV2FY3LXRYB5XOQKKIEXIJW3SOFZRBINBDWJFSLPCHEAN7MGRF4PEEXMSBIESIJM5A",
+				"supportedInterfaces": {}
+			},
+			"apiEndpoint": "https://api.amazonalexa.com",
+			"apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLjFkNzIwOTVjLWQxM2QtNDUyZi05NDQ2LTU2Zjg0MGY3MWQ3NSIsImV4cCI6MTUzNjg4MDE4MSwiaWF0IjoxNTM2ODc2NTgxLCJuYmYiOjE1MzY4NzY1ODEsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUdHVVBDT0lEVjJaRUZWWTZTSlVBTlBJVDZONTVRUUJUTlM2RzNaNzY0REdIRFI2S1JHWURQSUhXMlUyMllYSlVaUlM2Uzc1QUNKSUwzR1IzQjJNRlNGTkhLR1YyRlkzTFhSWUI1WE9RS0tJRVhJSlczU09GWlJCSU5CRFdKRlNMUENIRUFON01HUkY0UEVFWE1TQklFU0lKTTVBIiwidXNlcklkIjoiYW16bjEuYXNrLmFjY291bnQuQUU2R0ZUQ0lTTktaR003R1hPRFVERVdXVFRWSk9TRFFLUDNTUUkyWU5aT1YyT1RaTldGVEpBVzRZTDVSNUtTNkxPU1RZS1UzNVpXTVRLQU5YVlpSM0NNQllVNE1NR0dDNE5HS1pFN1Y1TUZHSlg3MlZRNFZKWEEzQkNMNUdQRklETFdRVEtPWTNYWFY0RTZGTk82TUVVN1JLV0FBSFRKSlVTNVRRNEFLR0VPRTJGTjYyNzdVRllaUVhWMlNRQlBCR0VPMlpMVlFMQ0lZUUlBIn19.O4sYdK1sEDMD08EnlZMoUveHOIphINcNKNqvDI7z4qaDSkExRlU45AMpKyl46yV4_A-x4RN4iiKfjvw1yPw56yQUfGAPHrm09cRCcbGzATI85z6uFzJFVmlngj5LyY1S0h8q-LAku81RC2KosWYG36V3e3Y3ok6MVfLQLYghHNJFsZiyjMXgqI5gKy9sFBcXC0hASLbJHksLp5MHnYph1Hs4WGtfUUAJ20JymHL6dTjdBmaPkbWduWd3fqUZkAielznsTU1dIBD7fWimLgO-NwJNU3ku2Szy_vGXRYoDSqzgX8yPIaJ-28Ew0Fjj6O5Hm6JBp6KhSYnyRuFuP5CrpQ"
+		}
+	},
+	"request": {
+		"type": "IntentRequest",
+		"requestId": "amzn1.echo-api.request.3a2263b3-443f-4506-b620-f093e4c78104",
+		"timestamp": "2018-09-13T22:09:41Z",
+		"locale": "en-US",
+		"intent": {
+			"name": "CreateNewGame",
+			"confirmationStatus": "NONE"
+		},
+		"dialogState": "STARTED"
+	}
+}

@@ -1,0 +1,151 @@
+{
+	"version": "1.0",
+	"session": {
+		"new": false,
+		"sessionId": "amzn1.echo-api.session.f5ecc2c6-c206-4e4c-a087-deef340a2f37",
+		"application": {
+			"applicationId": "amzn1.ask.skill.1d72095c-d13d-452f-9446-56f840f71d75"
+		},
+		"attributes": {
+			"data": {
+				"name": null,
+				"rules": [
+					{
+						"event": "start",
+						"action": "move forward",
+						"value": "fast"
+					},
+					{
+						"event": "start",
+						"action": "set background",
+						"value": "moon"
+					},
+					{
+						"event": "tap",
+						"action": "flap",
+						"value": "small"
+					},
+					{
+						"event": "start",
+						"action": "add points"
+					},
+					{
+						"event": "hit star",
+						"action": "add points"
+					},
+					{
+						"event": "tap",
+						"action": "set background",
+						"value": "random"
+					}
+				],
+				"author": null,
+				"accessCode": "8K49",
+				"context": null,
+				"currentRule": null
+			},
+			"state": null
+		},
+		"user": {
+			"userId": "amzn1.ask.account.AE6GFTCISNKZGM7GXODUDEWWTTVJOSDQKP3SQI2YNZOV2OTZNWFTJAW4YL5R5KS6LOSTYKU35ZWMTKANXVZR3CMBYU4MMGGC4NGKZE7V5MFGJX72VQ4VJXA3BCL5GPFIDLWQTKOY3XXV4E6FNO6MEU7RKWAAHTJJUS5TQ4AKGEOE2FN6277UFYZQXV2SQBPBGEO2ZLVQLCIYQIA"
+		}
+	},
+	"context": {
+		"System": {
+			"application": {
+				"applicationId": "amzn1.ask.skill.1d72095c-d13d-452f-9446-56f840f71d75"
+			},
+			"user": {
+				"userId": "amzn1.ask.account.AE6GFTCISNKZGM7GXODUDEWWTTVJOSDQKP3SQI2YNZOV2OTZNWFTJAW4YL5R5KS6LOSTYKU35ZWMTKANXVZR3CMBYU4MMGGC4NGKZE7V5MFGJX72VQ4VJXA3BCL5GPFIDLWQTKOY3XXV4E6FNO6MEU7RKWAAHTJJUS5TQ4AKGEOE2FN6277UFYZQXV2SQBPBGEO2ZLVQLCIYQIA"
+			},
+			"device": {
+				"deviceId": "amzn1.ask.device.AGGUPCOIDV2ZEFVY6SJUANPIT6N55QQBTNS6G3Z764DGHDR6KRGYDPIHW2U22YXJUZRS6S75ACJIL3GR3B2MFSFNHKGV2FY3LXRYB5XOQKKIEXIJW3SOFZRBINBDWJFSLPCHEAN7MGRF4PEEXMSBIESIJM5A",
+				"supportedInterfaces": {}
+			},
+			"apiEndpoint": "https://api.amazonalexa.com",
+			"apiAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLjFkNzIwOTVjLWQxM2QtNDUyZi05NDQ2LTU2Zjg0MGY3MWQ3NSIsImV4cCI6MTUzNjgzNTk2NSwiaWF0IjoxNTM2ODMyMzY1LCJuYmYiOjE1MzY4MzIzNjUsInByaXZhdGVDbGFpbXMiOnsiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUdHVVBDT0lEVjJaRUZWWTZTSlVBTlBJVDZONTVRUUJUTlM2RzNaNzY0REdIRFI2S1JHWURQSUhXMlUyMllYSlVaUlM2Uzc1QUNKSUwzR1IzQjJNRlNGTkhLR1YyRlkzTFhSWUI1WE9RS0tJRVhJSlczU09GWlJCSU5CRFdKRlNMUENIRUFON01HUkY0UEVFWE1TQklFU0lKTTVBIiwidXNlcklkIjoiYW16bjEuYXNrLmFjY291bnQuQUU2R0ZUQ0lTTktaR003R1hPRFVERVdXVFRWSk9TRFFLUDNTUUkyWU5aT1YyT1RaTldGVEpBVzRZTDVSNUtTNkxPU1RZS1UzNVpXTVRLQU5YVlpSM0NNQllVNE1NR0dDNE5HS1pFN1Y1TUZHSlg3MlZRNFZKWEEzQkNMNUdQRklETFdRVEtPWTNYWFY0RTZGTk82TUVVN1JLV0FBSFRKSlVTNVRRNEFLR0VPRTJGTjYyNzdVRllaUVhWMlNRQlBCR0VPMlpMVlFMQ0lZUUlBIn19.Cub0znBoCQkF5pU2i2rnHN1JVIwYW4NOzLENHXvlkvZQ6wB20_sFybamLDwR-V4HnOa_8T4Fmz3eSCH8Fs3QSq6CYxIwLVkm7I_gu3XV5aJXy_iJ5PBca_FLH4wu8BfY8fErH-kuNPEf-rxsbvXAYsxGb8ZuW-4RbK7el5zkE6Bu65NOA0Tz9G4JdrV5KEJwdu6NrlXegKMrb8_w9mYIo1W22vsVi2nxJzC0CxfgsdqmprCqGGRrCKMIu7I1Hx3T65tv54VWLij-fqDVo2hxBvJ8JgfNrGWQ7DZ5Q-VFFIdSVpgeu0E4rYcDGxWk8cXkWNQtAWN_-T8uI9DqAM8UCw"
+		}
+	},
+	"request": {
+		"type": "IntentRequest",
+		"requestId": "amzn1.echo-api.request.417c5a52-44d1-4105-a113-fbd4b8aee8fe",
+		"timestamp": "2018-09-13T09:52:45Z",
+		"locale": "en-US",
+		"intent": {
+			"name": "AddRule",
+			"confirmationStatus": "NONE",
+			"slots": {
+				"Value": {
+					"name": "Value",
+					"value": "random",
+					"resolutions": {
+						"resolutionsPerAuthority": [
+							{
+								"authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.1d72095c-d13d-452f-9446-56f840f71d75.Value",
+								"status": {
+									"code": "ER_SUCCESS_MATCH"
+								},
+								"values": [
+									{
+										"value": {
+											"name": "Random",
+											"id": "64663f4646781c9c0110838b905daa23"
+										}
+									}
+								]
+							}
+						]
+					},
+					"confirmationStatus": "NONE"
+				},
+				"Event": {
+					"name": "Event",
+					"value": "tap",
+					"resolutions": {
+						"resolutionsPerAuthority": [
+							{
+								"authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.1d72095c-d13d-452f-9446-56f840f71d75.Event",
+								"status": {
+									"code": "ER_SUCCESS_MATCH"
+								},
+								"values": [
+									{
+										"value": {
+											"name": "Tap",
+											"id": "73cf2f244bc0cb0d205b99c04fa13978"
+										}
+									}
+								]
+							}
+						]
+					},
+					"confirmationStatus": "NONE"
+				},
+				"Action": {
+					"name": "Action",
+					"value": "set background",
+					"resolutions": {
+						"resolutionsPerAuthority": [
+							{
+								"authority": "amzn1.er-authority.echo-sdk.amzn1.ask.skill.1d72095c-d13d-452f-9446-56f840f71d75.Action",
+								"status": {
+									"code": "ER_SUCCESS_MATCH"
+								},
+								"values": [
+									{
+										"value": {
+											"name": "Set Background",
+											"id": "SetBackground"
+										}
+									}
+								]
+							}
+						]
+					},
+					"confirmationStatus": "NONE"
+				}
+			}
+		},
+		"dialogState": "STARTED"
+	}
+}

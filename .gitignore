@@ -1,0 +1,10 @@
+﻿# .gitignore
+.reify-cache
+plugins
+bin
+bld
+node_modules
+platforms
+.DS_Store
+/VGMCore/src/config/config.js
+/Videos

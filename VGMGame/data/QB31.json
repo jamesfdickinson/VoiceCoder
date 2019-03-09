@@ -1,0 +1,78 @@
+{
+    "game": "FlappyBirdGame",
+    "rules": [
+        {
+            "event": "Start",
+            "action": "Set Background",
+            "value": "Winter"
+        },
+        {
+            "event": "Start",
+            "action": "Play Sound",
+            "value": "ping"
+        },
+        {
+            "event": "Start",
+            "action": "Move Forward",
+            "value": "Medium"
+        },
+        {
+            "event": "Start",
+            "action": "Set Gravity",
+            "value": "Medium"
+        },
+        {
+            "event": "Tap",
+            "action": "Flap",
+            "value": "Medium"
+        },
+        {
+            "event": "Tap",
+            "action": "Set Background",
+            "value": "Random"
+        },
+        {
+            "event": "Tap",
+            "action": "Play Sound",
+            "value": "numkey"
+        },
+        
+        {
+            "event": "Hit Star",
+            "action": "Add Points",
+            "value": "1"
+        },
+        {
+            "event": "Hit Star",
+            "action": "Play Sound",
+            "value": "ping"
+        },
+        {
+            "event": "Hit Obstacle",
+            "action": "Crash"
+        },
+        {
+            "event": "Hit Obstacle",
+            "action": "Play Sound",
+            "value": "alien death"
+        },
+   
+        {
+            "event": "Hit Top",
+            "action": "Play Sound",
+            "value": "shot"
+        },
+        {
+            "event": "Hit Ground",
+            "action": "Play Sound",
+            "value": "shot"
+        },
+        {
+            "event": "Win",
+            "action": "Play Sound",
+            "value": "meow"
+        }
+    ],
+    "author": "",
+    "accessCode": "QB31"
+}

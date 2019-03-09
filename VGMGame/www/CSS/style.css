@@ -1,0 +1,35 @@
+h1 {
+    text-align: center;
+    font-size: 2.6em;
+    font-family: sans-serif,Impact, Charcoal, Verdana;
+    margin: 10px 0;
+}
+
+.topBar-white {
+    color: #000 !important;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #6e6e6e;
+}
+.wrapper{
+    max-width:1000px;
+    margin: 0 auto;
+}
+.playButton {
+    font-size: 160%;
+    padding: 10px 10px;
+    margin: 10px 10px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 90%;
+    text-decoration: none;
+    color: black;
+    max-width: 400px;
+}
+
+.hamburgerMenu>div {
+    width: 20px;
+    height: 2px;
+    background-color: black;
+    margin: 4px 0;
+}

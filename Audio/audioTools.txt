@@ -1,0 +1,18 @@
+audiosprite Sounds\*.wav --output "Sounds" --gap 0.5 --bitrate 64
+
+
+audiosprite WellDone.wav --output "WellDone" --gap 0.5 --bitrate 64
+audiosprite FindTheWord.wav --output "FindTheWord" --gap 0.5 --bitrate 64
+audiosprite Pop.wav --output "Pop" --gap 0.5 --bitrate 64
+audiosprite Splat.wav --output "Splat" --gap 0.5 --bitrate 64
+
+audiosprite Boing.wav --output "Boing" --gap 0.5 --bitrate 64
+
+wav to ogg
+ffmpeg
+ffmpeg -i audio.wav  -acodec libvorbis audio.ogg
+ffmpeg -i WellDone.wav -c:a libfdk_aac -b:a 64k WellDone.m4a 
+audiosprite FindTheWord.wav --output "FindTheWord" --gap 0.5 --bitrate 64
+
+ffmpeg -i WellDone.wav  -acodec libvorbis WellDone.ogg
+ffmpeg -i WellDone.wav  -acodec libfdk_aac WellDone.m4a b:a 64k 

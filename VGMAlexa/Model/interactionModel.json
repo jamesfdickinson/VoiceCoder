@@ -1,0 +1,602 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "voice coder",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AddRule",
+                    "slots": [
+                        {
+                            "name": "Event",
+                            "type": "Event"
+                        },
+                        {
+                            "name": "Action",
+                            "type": "Action"
+                        },
+                        {
+                            "name": "Value",
+                            "type": "Value"
+                        }
+                    ],
+                    "samples": [
+                        "On {Event}",
+                        "On {Event} {Action}",
+                        "On {Event} {Action} {Value}",
+                        "On {Event} {Action} to {Value}",
+                        "On {Event} then {Action} {Value}",
+                        "On {Event} then {Action} to {Value}",
+                        "When {Event}",
+                        "When {Event} {Action}",
+                        "When {Event} then {Action}",
+                        "When {Event} {Action} {Value}",
+                        "When {Event} {Action} to {Value}",
+                        "When {Event} then {Action} {Value}",
+                        "When {Event} then {Action} to {Value}",
+                        "Add rule on {Event}",
+                        "Add rule on {Event} {Action}",
+                        "Add rule on {Event} then {Action}",
+                        "Add rule on {Event} {Action} {Value}",
+                        "Add rule on {Event} {Action} to {Value}",
+                        "Add rule on {Event} then {Action} {Value}",
+                        "Add rule on {Event} then {Action} to {Value}",
+                        "Add rule when {Event}",
+                        "Add rule when {Event} {Action}",
+                        "Add rule when {Event} then {Action}",
+                        "Add rule when {Event} {Action} {Value}",
+                        "Add rule when {Event} then {Action} {Value}",
+                        "Add rule when {Event} then {Action} to {Value}",
+                        "Add new rule",
+                        "Add rule",
+                        "Add rule {Event}",
+                        "Add rule {Event} {Action}",
+                        "Add rule {Event} then {Action}",
+                        "Add rule {Event} {Action} {Value}",
+                        "Add rule {Event} then {Action} {Value}",
+                        "Add rule {Event} then {Action} to {Value}"
+                    ]
+                },
+                {
+                    "name": "AddRuleEvent",
+                    "slots": [
+                        {
+                            "name": "Event",
+                            "type": "Event"
+                        }
+                    ],
+                    "samples": [
+                        "{Event}"
+                    ]
+                },
+                {
+                    "name": "AddRuleAction",
+                    "slots": [
+                        {
+                            "name": "Action",
+                            "type": "Action"
+                        }
+                    ],
+                    "samples": [
+                        "{Action}"
+                    ]
+                },
+                {
+                    "name": "AddRuleValue",
+                    "slots": [
+                        {
+                            "name": "Value",
+                            "type": "Value"
+                        }
+                    ],
+                    "samples": [
+                        "{Value}"
+                    ]
+                },
+                {
+                    "name": "ListEvents",
+                    "slots": [],
+                    "samples": [
+                        "What events can I use",
+                        "What triggers can I use",
+                        "what are all the events",
+                        "what are all the triggers",
+                        "List all triggers",
+                        "List events",
+                        "List triggers",
+                        "List all events"
+                    ]
+                },
+                {
+                    "name": "ListActions",
+                    "slots": [
+                        {
+                            "name": "Event",
+                            "type": "Event"
+                        }
+                    ],
+                    "samples": [
+                        "List {Event} actions",
+                        "What are all the actions I can use for {Event}",
+                        "List actions {Event}",
+                        "List all actions for {Event}",
+                        "All actions for {Event}",
+                        "All actions",
+                        "What are all the actions I can use",
+                        "List all actions",
+                        "List actions"
+                    ]
+                },
+                {
+                    "name": "ListValues",
+                    "slots": [
+                        {
+                            "name": "Action",
+                            "type": "Action",
+                            "samples": [
+                                "{Action}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "What values can I use with {Action}",
+                        "All values for {Action}",
+                        "List all settings for {Action}",
+                        "List all values for {Action}"
+                    ]
+                },
+                {
+                    "name": "GetAccessCode",
+                    "slots": [],
+                    "samples": [
+                        "Play the game",
+                        "Play game",
+                        "What is my game id",
+                        "What is the website",
+                        "What is the url",
+                        "How to open game",
+                        "How to play",
+                        "Access code",
+                        "What is the access code",
+                        "What is my access code",
+                        "How to play the game",
+                        "How do I play my game"
+                    ]
+                },
+                {
+                    "name": "CreateNewGame",
+                    "slots": [],
+                    "samples": [
+                        "Clear game",
+                        "Delete game",
+                        "Start over",
+                        "New Game",
+                        "Create new game"
+                    ]
+                },
+                {
+                    "name": "RemoveRule",
+                    "slots": [
+                        {
+                            "name": "Event",
+                            "type": "Event",
+                            "samples": [
+                                "{Event}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Remove rules for {Event}",
+                        "Clear all events for {Event}",
+                        "Clear event {Event}",
+                        "Remove rule on {Event}",
+                        "Remove rules {Event}",
+                        "Remove rule {Event}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "Event",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Lose"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Win"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hit Top"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hit Ground"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hit Star",
+                                "synonyms": [
+                                    "player hit star",
+                                    "touch star"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Hit box",
+                                "synonyms": [
+                                    "hit a box",
+                                    "player hits box",
+                                    "touch box"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Tap"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Start",
+                                "synonyms": [
+                                    "game starts"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Action",
+                    "values": [
+                        {
+                            "id": "Flap",
+                            "name": {
+                                "value": "Flap",
+                                "synonyms": [
+                                    "fly"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "PlaySound",
+                            "name": {
+                                "value": "Play Sound",
+                                "synonyms": [
+                                    "play a sound"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "MoveForward",
+                            "name": {
+                                "value": "Move Forward"
+                            }
+                        },
+                        {
+                            "id": "AddPoints",
+                            "name": {
+                                "value": "Add Points"
+                            }
+                        },
+                        {
+                            "id": "SetGravity",
+                            "name": {
+                                "value": "Set Gravity",
+                                "synonyms": [
+                                    "Change Gravity"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "SetBackground",
+                            "name": {
+                                "value": "Set Background",
+                                "synonyms": [
+                                    "Change Background"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "FlipGravity",
+                            "name": {
+                                "value": "Flip Gravity"
+                            }
+                        },
+                        {
+                            "id": "Crash",
+                            "name": {
+                                "value": "Crash"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "Value",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "1000000"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "1000"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "100"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "10"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "1"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Reverse"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "squit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "shot"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "death"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ping"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "numkey"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "meow"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "escape"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "boss hit"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Desert"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Forest"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Moon"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Winter"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Sky"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Random"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Small"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Large"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Slow"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Medium"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fast"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Super Fast"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "AddRule",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Event",
+                            "type": "Event",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "Action",
+                            "type": "Action",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        },
+                        {
+                            "name": "Value",
+                            "type": "Value",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                },
+                {
+                    "name": "ListValues",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Action",
+                            "type": "Action",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1223605681339.43260083291"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "CreateNewGame",
+                    "confirmationRequired": true,
+                    "prompts": {
+                        "confirmation": "Confirm.Intent.1435798121622"
+                    },
+                    "slots": []
+                },
+                {
+                    "name": "RemoveRule",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Event",
+                            "type": "Event",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1434076033824.1372862725960"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ListActions",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "Event",
+                            "type": "Event",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1223605681339.43260083291",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "List values for which action?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What action do you want list the values for?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Intent.1435798121622",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Your current game will be deleted, Are you sure you want to start a new game?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1434076033824.1372862725960",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What event's rules should be removed?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.832272362762.147406000998",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which event do you want to list the actions for?"
+                    }
+                ]
+            }
+        ]
+    }
+}

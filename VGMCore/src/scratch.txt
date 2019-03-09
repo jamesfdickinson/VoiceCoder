@@ -1,0 +1,17 @@
+        this.tutorialEvents = ["start", "tap", "hit box"];
+        this.tutorialSteps = [
+            {
+                prompt: "Let's start with the first event. When the game starts the player needs to move forward.  What value do you want to assign it? slow, medium, fast, or super fast?",
+                event: "start",
+                action: "move forward",
+                rule: { event: "start", action: "move forward", value: null },
+                context: "createRuleValue"
+            },
+            {
+                prompt: "On tap, the player should fly up.  How much should it fly up? small, medium, or large?",
+                event: "tap",
+                action: "flap",
+                rule: { event: "tap", action: "flap", value: null },
+                context: "createRuleValue"
+            }
+        ];

@@ -1,0 +1,60 @@
+{
+  "resources": [
+    "Sounds.ogg",
+    "Sounds.m4a",
+    "Sounds.mp3",
+    "Sounds.ac3"
+  ],
+  "spritemap": {
+    "boing": {
+      "start": 0,
+      "end": 0.5660770975056689,
+      "loop": false
+    },
+    "spring": {
+      "start": 1.5,
+      "end": 3.1366439909297053,
+      "loop": false
+    },
+    "twang": {
+      "start": 4,
+      "end": 4.807165532879819,
+      "loop": false
+    },
+    "slidewhistle": {
+      "start": 5.5,
+      "end": 6.140272108843537,
+      "loop": false
+    },
+    "FindTheWord-old1": {
+      "start": 7,
+      "end": 9.993922902494331,
+      "loop": false
+    },
+    "findtheword": {
+      "start": 10.5,
+      "end": 12.398775510204082,
+      "loop": false
+    },
+    "Mario_Jumping-Mike_Koenig-989896458": {
+      "start": 13,
+      "end": 15.005986394557823,
+      "loop": false
+    },
+    "pop": {
+      "start": 16.5,
+      "end": 18.505986394557823,
+      "loop": false
+    },
+    "splat": {
+      "start": 20,
+      "end": 20.453378684807255,
+      "loop": false
+    },
+    "wellDone": {
+      "start": 21.5,
+      "end": 23.425804988662133,
+      "loop": false
+    }
+  }
+}

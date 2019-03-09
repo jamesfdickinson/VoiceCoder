@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/w3.css">
+    <script src="phaser.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+
+        .header {
+            font-size: 3em;
+            background-color: azure;
+        }
+
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 3px 3px;
+        }
+
+        #gameContainer {
+            width: 100%;
+            max-height: 600px;
+
+        }
+
+        canvas {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+        }
+
+        input {
+            width: 100%;
+            font-size: 1em;
+            margin: 2px 0px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w3-bar topBar-white ">
+        <a class="w3-bar-item w3-button  w3-left w3-hover-white topBar-white" href="/">
+            <div class="hamburgerMenu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </a>
+
+        <a href="#tips" class="w3-bar-item w3-button  w3-hover-white">Tips</a>
+        <a href="#rules" class="w3-bar-item w3-button  w3-hover-white">Rules</a>
+        <a href="#help" class="w3-bar-item w3-button  w3-hover-white">Help</a>
+
+    </div>
+    <!-- <div class="header">Back Games</div> -->
+    <div id="gameContainer"></div>
+    <div class="content">
+        <div>
+
+            <input type="button" value="Reload" onClick="window.location.reload()" />
+        </div>
+        <!-- <div>
+            <input type="text" id="accessCode" />
+            <input type="button" value="Load" />
+        </div> -->
+
+        <div id="tips">
+            <p>Tips:</p>
+            <ul>
+                <li>Try adding: On "Start" "Set Gravity" to "Stong"</li>
+                <li>Say "Alexa, tell GameMaker to add a new rule. When 'Start', Set Gravity to Stong."</li>
+                <li>Try adding: On "Tap" "Flap" Medium</li>
+            </ul>
+
+        </div>
+        <div id="rules">
+            <p>Rules:</p>
+            <ul>
+                <li>On <b>Start</b> : Set Background to Winter</li>
+                <li>On <b>Tap</b> : Flap Medium</li>
+                <li>On <b>Hit Obstacle</b> : Explode</li>
+                <li>On <b>Tap</b> : Flap Medium</li>
+                <li>On <b>Start</b> : Set Background to Winter</li>
+                <li>On <b>Tap</b> : Flap Medium</li>
+            </ul>
+        </div>
+        <div id="help">
+            <p>Help:</p>
+            <p>
+                Try adding: On "Start" "Set Gravity" to "Stong". Say "Alexa, tell GameMaker to add a new rule. When 'Start', Set Gravity
+                to Stong." Try adding: On "Tap" "Flap" Medium
+                </li>
+                </ul>
+
+        </div>
+    </div>
+    <script>
+        var config = {
+            type: Phaser.AUTO,
+            width: 600,
+            height: 600,
+            parent: 'gameContainer',
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 500 }
+                }
+            },
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
+        };
+
+        var game = new Phaser.Game(config);
+        var rules = null;
+        var id = null;
+        var background = null;
+        var backgrounds = ['Winter', 'Grave', 'Forest', 'Desert', 'Sky'];
+        var player = null;
+        var scene = null;
+        var map = null;
+        var scoreText;
+        var gameOver = null;
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        function preload() {
+
+            var urlVars = getUrlVars();
+
+            // this.load.setBaseURL('http://labs.phaser.io');
+
+
+            //    this.load.json('data', '' + urlVars["id"]+".json");
+            this.load.json('data', 'QB31.json');
+
+            this.load.audioSprite('sfx', 'Audio/fx_mixdown.json', [
+                'Audio/fx_mixdown.ogg',
+                'Audio/fx_mixdown.mp3'
+            ]);
+
+            this.load.audio('bong', 'Audio/whoop.wav');
+
+
+            //sources
+            //https://www.gameart2d.com/winter-platformer-game-tileset.html
+
+            //backgrounds
+            this.load.image('Sky', 'Images/BG/Sky.png');
+            this.load.image('Winter', 'Images/BG/Winter.png');
+            this.load.image('Grave', 'Images/BG/Grave.png');
+            this.load.image('Forest', 'Images/BG/Forest.png');
+            this.load.image('Desert', 'Images/BG/Desert.png');
+
+            //dialogs
+            this.load.image('StartDialog', 'Images/Dialogs/StartDialog.png');
+            this.load.image('GameOver', 'Images/Dialogs/GameOver.png');
+            this.load.image('WinDialog', 'Images/Dialogs/WinDialog.png');
+
+
+            //player
+            this.load.image('Fly', 'Images/Player/Fly.png');
+            this.load.image('Dead', 'Images/Player/Dead.png');
+
+            //Obstacle
+            this.load.image('Crate', 'Images/Obstacle/Crate.png');
+            this.load.image('Star', 'Images/Obstacle/Star.png');
+
+
+            // //tiles
+            // // tiles in spritesheet 
+            // this.load.spritesheet('tiles', 'Images/Tiles/platform.png', { frameWidth: 64, frameHeight: 64 });
+
+            // // map made with Tiled in JSON format
+            // this.load.tilemapTiledJSON('map', 'Images/Tiles/map1.json');
+
+
+        }
+
+        function create() {
+            //api docs https://photonstorm.github.io/phaser3-docs
+            scene = this;
+
+            this.cameras.main.setBounds(0, 0, 6000, 600);
+            this.physics.world.setBounds(0, 0, 6000, 600);
+            // this.physics.world.gravity.y = 500;
+            scene.physics.world.gravity.y = 0;
+
+            //background1 = this.add.sprite(400, 300, 'Grave');
+            // background = this.add.image(400, 300, 'sky');
+            background = this.add.tileSprite(3000, 300, 6000, 600, 'Winter');
+
+
+
+
+            // bong = this.sound.add('bong');
+
+
+            // // load the map 
+            // map = this.make.tilemap({ key: 'map' });
+
+            // // tiles for the ground layer
+            // var groundTiles = map.addTilesetImage('platform', 'tiles');
+
+            // // create the ground layer
+            // groundLayer = map.createDynamicLayer('World', groundTiles, 0, 0);
+
+            // // the player will collide with this layer
+            // groundLayer.setCollisionByExclusion([-1]);
+
+            // // set the boundaries of our game world
+            // this.physics.world.bounds.width = groundLayer.width;
+            // this.physics.world.bounds.height = groundLayer.height;
+
+            // this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+
+
+
+            obstacles = this.physics.add.staticGroup();
+            // obstacles.create(500, 500, 'Crate');
+            // obstacles.create(1000, 600, 'Crate');
+            // obstacles.create(1500, 550, 'Crate');
+            // obstacles.create(2000, 500, 'Crate');
+            // obstacles.create(2500, 500, 'Crate');
+
+            stars = this.physics.add.staticGroup();
+            // stars.create(500, 400, 'Star');
+            // stars.create(1000, 300, 'Star');
+            // stars.create(1500, 150, 'Star');
+            // stars.create(2000, 200, 'Star');
+            // stars.create(2500, 600, 'Star');
+
+            createPipes(stars, obstacles);
+
+
+            player = this.physics.add.image(400, 100, 'Fly');
+            player.displayWidth = 100;
+            player.displayHeight = 75;
+            player.setBounce(1, 0.0);
+            player.setCollideWorldBounds(true);
+
+            //this.physics.add.collider(groundLayer, player);
+            // this.physics.add.collider(obstacles, player);
+
+            scoreText = this.add.text(5, 5, 'Score: 0', { fontSize: '32px', fill: '#ffffff' });
+            scoreText.setScrollFactor(0);
+
+
+
+
+            startScreen = this.add.image(300, 300, 'StartDialog');
+            startScreen.setScrollFactor(0);
+            startScreen.setInteractive();
+            startScreen.on('pointerdown', function () {
+                start();
+                startScreen.visible = false;
+
+            });
+
+            winScreen = this.add.image(300, 300, 'WinDialog');
+            winScreen.setScrollFactor(0);
+            winScreen.setInteractive();
+            winScreen.on('pointerdown', function () {
+                scene.scene.restart();
+            });
+            winScreen.visible = false;
+
+
+            gameOverScreen = this.add.image(300, 300, 'GameOver');
+            gameOverScreen.setScrollFactor(0);
+            gameOverScreen.setInteractive();
+            gameOverScreen.on('pointerdown', function () {
+                scene.scene.restart();
+            });
+            gameOverScreen.visible = false;
+
+
+
+            //  startText = this.add.text(500, 250, 'Stunt Pilot', { fontSize: '32px', fill: '#ffffff', align: 'center' });
+            //  startText.setOrigin(0.5);
+            //  startText = this.add.text(500, 300, 'Tap to start', { fontSize: '14px', fill: '#ffffff', align: 'center' });
+            //  startText.setOrigin(0.5);
+
+
+
+            // this.cameras.main.setBounds(0, 0, 1024, 2048);
+            this.cameras.main.startFollow(player, true, 1, 1, -200, 0);
+
+
+
+            var data = this.cache.json.get('data');
+            if (data) {
+                rules = data.rules;
+                id = data.accessCode;
+            }
+
+            //Event Hit Star
+            //all events ["Start", "Tap", "Hit Obstacle", "Hit Ground", "Pass Star"];
+
+            //Event Hit Obstacle
+            // this.physics.add.overlap(player, obstacles, hitObstacle, null, this);
+            this.physics.add.overlap(player, obstacles, hitObstacle, null, this);
+            //Event Hit Star
+            this.physics.add.overlap(player, stars, hitStar, null, this);
+            //Event Tap
+            this.input.on('pointerdown', pointerdown);
+            //Event Start
+
+
+        }
+        function update() {
+            // cloud1.tilePositionX += 0.5;
+            //if(player.body.touching.down){
+            //var i = player.body.touching.down;
+
+            //Event "Hit Ground"
+            if (player.y > 550) {
+                if (!player.isTouchingGround) {
+                    processEvent("Hit Ground");
+                    player.isTouchingGround = true;
+                    if (player.isDead) {
+                        lose();
+                    }
+                }
+            } else {
+                player.isTouchingGround = false;
+            }
+            //check for hit top
+            if (player.y <= 40) {
+                if (!player.isTouchingTop) {
+                    processEvent("Hit Top");
+                    player.isTouchingTop = true;
+                    if (player.isDead && !gameOver) {
+                        lose();
+                    }
+                }
+            } else {
+                player.isTouchingTop = false;
+            }
+
+            if (player.x > scene.physics.world.bounds.width - 300) {
+                if (!gameOver) {
+                        win();
+                }
+            } 
+            
+        }
+        function createPipes(stars, obstacles) {
+            for (var i = 2; i < 10; i++) {
+                var x = i * 500;
+                createPipe(x, stars, obstacles);
+            }
+        }
+        function createPipe(x, stars, obstacles) {
+            var rand = 1 + Math.floor(Math.random() * 5);
+            for (var i = 0; i < 7; i++) {
+                var y = i * 100;
+                if (i == rand) {
+                    stars.create(x, y, 'Star');
+                } else if (i == rand - 1) {
+                    stars.create(x, y, 'Star');
+                }
+                else {
+                    obstacles.create(x, y, 'Crate');
+                }
+            }
+        }
+        //events
+        function start() {
+
+            //reset all 
+            score = 0;
+            scoreText.setText("Score: " + score);
+            player.angle = 0;
+            player.setVelocity(200, 0);
+            scene.physics.world.gravity.y = 500;
+            player.isDead = false;
+            gameOver = false;
+            processEvent("Start");
+        }
+        function pointerdown(pointer) {
+            processEvent("Tap");
+        };
+        function hitObstacle(player, obstacle) {
+            //todo: fix to not retrigger when alternating between 2.
+            //todo: could try if alive - player.canFlap== true;
+            //add to list or recent objects hit
+            if (!obstacle.hasBeenhit && !player.isDead) {
+                processEvent("Hit Obstacle");
+                obstacle.hasBeenhit = true;
+            }
+        }
+        function hitStar(player, star) {
+            star.disableBody(true, true);
+            processEvent("Hit Star");
+        }
+        //actions
+        function processEvent(event) {
+            console.log("Event:" + event);
+            if (!rules) return;
+
+            var filteredRules = rules.filter(rule => rule.event === event);
+            for (i = 0; i < filteredRules.length; i++) {
+                var rule = filteredRules[i];
+                var action = rule.action;
+                var value = rule.value;
+
+                //this.actions = ["Play Sound", "Flap", "Explode", "Set Background", "Win", "Lose"];
+
+                //do action   
+                if (action === "Win") {
+                    win();
+                }
+                //do action   
+                if (action === "Lose") {
+                    lose();
+                }
+                if (action === "Move Forward") {
+                    moveForward(value);
+                }
+
+                //do action   
+                if (action === "Set Background") {
+                    SetBackground(value);
+                }
+                if (action === "Set Gravity") {
+                    SetGravity(value);
+                }
+                if (action === "Flip Gravity") {
+                    flipGravity();
+                }
+                //do action   
+                if (action === "Crash") {
+                    crash();
+                }
+                //do action   
+                if (action === "Play Sound") {
+                    playSound(value);
+                }
+                //do action   
+                if (action === "Flap") {
+                    flap(value);
+                }
+                //do action   
+                if (action === "Add Points") {
+                    AddPoints(value);
+                }
+
+            }
+
+        }
+
+        function win() {
+            gameOver = true;
+            player.setVelocity(0, 0);
+            scene.physics.world.gravity.y =0;
+            winScreen.visible = true;
+        }
+        function lose() {
+            gameOver = true;
+            gameOverScreen.visible = true;
+        }
+        function AddPoints(value) {
+            score += parseInt(value) || 1;
+            scoreText.setText("Score: " + score);
+        }
+        function moveForward(value) {
+            var strength = 200;
+            if (value === "Super Fast")
+                strength = 500;
+            if (value === "Fast")
+                strength = 300;
+            if (value === "Medium")
+                strength = 200;
+            if (value === "Slow")
+                strength = 150;
+
+            player.setVelocity(strength, 0);
+        }
+        function flap(value) {
+            var strength = -300;
+            if (value === "Large")
+                strength = -600;
+            if (value === "Medium")
+                strength = -300;
+            if (value === "Small")
+                strength = -150;
+            var gravityValue = scene.physics.world.gravity.y;
+            strength = strength * Math.sign(gravityValue);
+            if (!player.isDead)
+                player.setVelocityY(strength);
+        }
+        function crash() {
+            player.setTexture('Dead');
+            player.angle = 90;
+            player.setVelocity(0, 0);
+            player.isDead = true;
+        }
+        
+        function SetBackground(value) {
+            if (value === "Random") {
+                var randBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+                background.setTexture(randBackground);
+            }
+            else {
+                background.setTexture(value);
+            }
+        }
+        function SetGravity(value) {
+            var gravityValue = 500;
+            if (value === "Large")
+                gravityValue = 1000;
+            if (value === "Medium")
+                gravityValue = 500;
+            if (value === "Small")
+                gravityValue = 200;
+            if (value === "Reverse")
+                gravityValue = -500;
+
+            // scene could be this
+            scene.physics.world.gravity.y = gravityValue;
+        }
+        function flipGravity() {
+
+            player.setVelocityY(0);
+            scene.physics.world.gravity.y *= -1;
+        }
+
+        function playSound(sound) {
+            // bong.play();
+            game.sound.playAudioSprite('sfx', sound);
+        }
+
+    </script>
+
+</body>
+
+</html>

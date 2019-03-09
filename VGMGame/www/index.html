@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/w3.css">
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43146845-23"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-43146845-23');
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: white;
+        }
+
+        h21 {
+            font-size: 3em;
+
+        }
+
+        .header {
+            margin: 0px auto 5px auto;
+
+            padding: 3px 0px;
+            text-align: center;
+        }
+
+        .content {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 0px 20px 0px 20px;
+
+        }
+
+        .content-center {
+            text-align: center;
+        }
+
+        .form {
+            max-width: 400px;
+            margin: 10px auto;
+            xpadding: 10px;
+        }
+
+        input {
+            width: 100%;
+            font-size: 2em;
+            margin: 2px 0px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        input[type="submit"]
+        /* Or better yet try giving an ID or class if possible*/
+            {
+            border: 0;
+            background: dodgerblue;
+            box-shadow: none;
+            border-radius: 0px;
+            color: white;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w3-bar topBar-white ">
+        <a class="w3-bar-item w3-button  w3-left w3-hover-white topBar-white" href="./">
+            <div class="hamburgerMenu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </a>
+        <!-- <a href="/" class="w3-bar-item w3-button  w3-hover-white">Voice Coder</a> -->
+        <!-- <a href="#tips" class="w3-bar-item w3-button  w3-hover-white">Tips</a>
+                <a href="#rules" class="w3-bar-item w3-button  w3-hover-white">Rules</a> -->
+        <a href="./" class="w3-bar-item w3-button  w3-hover-white">Home</a>
+        <a href="help.html" class="w3-bar-item w3-button  w3-hover-white">How it Works</a>
+
+    </div>
+
+    <div class="content content-center">
+        <div class="header">
+            <h1>Voice Coder</h1>
+            <p>Learn the basics of coding using your voice.</p>
+
+        </div>
+
+        <div class="form">
+            <!-- <form action="/game.html" method="get" >  -->
+            <form onSubmit="openGame(); return false">
+                <input id="accessCode" name="accessCode" type="text" placeholder="access code" value="">
+                <input type="submit" value="Open" />
+            </form>
+            <div id="error" class="error"></div>
+        </div>
+
+        <div id="help">
+            <!-- <p>To get started say "Alexa, open Code By Voice"</p> -->
+            <p>Don't have an access code?</p>
+            <ol style=" width: 90%; margin: auto; text-align: left;">
+                <li>Say, "Alexa, open Voice Coder"</li>
+                <li>Say, "What is my access code"</li>
+            </ol>
+            <p><a href="help.html">How it Works</a></p>
+            <p><a href="https://www.amazon.com/dp/B07HFWQPKN">Alexa Skill</a></p>
+        </div>
+       
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
