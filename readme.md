@@ -1,8 +1,6 @@
 # Voice Coder
 
-## Alexa Skill
-
-Voice Coder helps you learn about coding while creating your own game with your voice.
+Voice Coder helps you learn about coding while creating your own game with your voice.  Voice coder is an Alexa skill and companion website.
 
 To get started. Say, "Alexa open Voice Coder"
 
