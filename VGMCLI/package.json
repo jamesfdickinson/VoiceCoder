@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "figlet": "^1.2.0",
-    "inquirer": "^6.2.2",
+    "figlet": "^1.2.3",
+    "inquirer": "^6.5.1",
     "request": "^2.88.0",
-    "request-promise-native": "^1.0.5"
+    "request-promise-native": "^1.0.7"
   }
 }
