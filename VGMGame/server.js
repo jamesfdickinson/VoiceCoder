@@ -8,8 +8,14 @@ const DataManager = require('./DataManagerDB.js');
 var port = process.env.port || process.env.PORT || 80;
 var version = "1.0.0";
 
+
+var aws_remote_config = {
+    accessKeyId: process.env.AWS_accessKeyId,
+    secretAccessKey:  process.env.AWS_secretAccessKey,
+    region:  process.env.AWS_region,
+  };
 //data manager
-var dataManager = new DataManager();
+var dataManager = new DataManager(aws_remote_config);
 
 
 //express server routing

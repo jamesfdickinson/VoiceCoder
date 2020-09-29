@@ -1,11 +1,10 @@
 const AWS = require('aws-sdk');
-const config = require('./config/config.js');
 const randomstring = require("randomstring");
 //https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs/issues/359
 //https://medium.com/@Keithweaver_/using-aws-dynamodb-using-node-js-fd17cf1724e0
 class DataManagerDB {
-    constructor() {
-        AWS.config.update(config.aws_remote_config);
+    constructor(config) {
+        AWS.config.update(config );
         this.dynamoDb = new AWS.DynamoDB.DocumentClient();
     }
 
