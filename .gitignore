@@ -7,4 +7,5 @@ node_modules
 platforms
 .DS_Store
 /VGMCore/src/config/config.js
+/VGMGame/config/config.js
 /Videos
