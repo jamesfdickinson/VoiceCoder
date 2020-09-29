@@ -11,13 +11,16 @@ var port = process.env.port || process.env.PORT || 80;
 var version = "1.0.0";
 
 
-var aws_remote_config = {
-    accessKeyId: process.env.AWS_accessKeyId,
-    secretAccessKey:  process.env.AWS_secretAccessKey,
-    region:  process.env.AWS_region,
-  };
+const config = {
+    aws_table_name: 'VGM',
+    aws_remote_config: {
+        accessKeyId: process.env.AWS_accessKeyId,
+        secretAccessKey: process.env.AWS_secretAccessKey,
+        region: process.env.AWS_region
+    }
+};
 //data manager
-var dataManager = new DataManager(aws_remote_config);
+var dataManager = new DataManager(config);
 
 
 //express server routing
@@ -28,54 +31,54 @@ app.use(function (req, res, next) {
     next();
 });
 app.use(bodyParser.json());
-app.get('/user/:id', async function (req, res,next) {
+app.get('/user/:id', async function (req, res, next) {
     var id = req.params.id;
     //get new data to be sent
     //todo: if data is saved as files, then just let user get as static
     //todo: or just forward to static file location if on remote server
-    try { 
+    try {
         let item = await dataManager.loadByUserId(id);
         //should be 1
-        if(item){
+        if (item) {
             let payload = item.data;
             res.send(payload);
-        }else{
+        } else {
             throw "noUserIdFound";
         }
-     }
+    }
     catch (e) {
         next(e);
     }
 });
-app.post('/user/:id', async function (req, res,next) {
+app.post('/user/:id', async function (req, res, next) {
     var id = req.params.id;
     var data = req.body;
-    try { 
-        let accessCode = await dataManager.save(id,data);
+    try {
+        let accessCode = await dataManager.save(id, data);
         res.send(accessCode);
         var sentCount = sendMessage(accessCode, "Update", data);
-     }
+    }
     catch (e) {
         next(e);
     }
-   
-   // res.send(sentCount + " Update messages sent to: " + id + " : " + JSON.stringify(data1));
+
+    // res.send(sentCount + " Update messages sent to: " + id + " : " + JSON.stringify(data1));
 });
-app.get('/data/:id', async function (req, res,next) {
+app.get('/data/:id', async function (req, res, next) {
     var id = req.params.id;
     //get new data to be sent
     //todo: if data is saved as files, then just let user get as static
     //todo: or just forward to static file location if on remote server
-    try { 
+    try {
         let item = await dataManager.loadByAccessCode(id);
         //should be 1
-        if(item){
+        if (item) {
             let data = item.data;
             res.send(data);
-        }else{
+        } else {
             throw "accessCodeNotFound";
         }
-     }
+    }
     catch (e) {
         next(e);
     }
@@ -99,8 +102,8 @@ app.post('/update/:id', function (req, res) {
     //todo: get new data to be sent
     //todo: could be on post to save, also ping or forward to client
     var sentCount = sendMessage(id, "Update", data);
-   // res.send(sentCount + " Update messages sent to: " + id + " : " + JSON.stringify(data));
-    res.send(sentCount + " Update messages sent to: " + id );
+    // res.send(sentCount + " Update messages sent to: " + id + " : " + JSON.stringify(data));
+    res.send(sentCount + " Update messages sent to: " + id);
 });
 //http server 
 var httpServer = http.createServer(app);
