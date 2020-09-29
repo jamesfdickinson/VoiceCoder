@@ -9,9 +9,9 @@ class DataManagerDB {
         this.dynamoDb = new AWS.DynamoDB.DocumentClient();
     }
 
-    async save(userId,  dataP) {
+    async save(userId, dataP) {
         let accessCode = null;
-        let data = dataP ||{};
+        let data = dataP || {};
 
 
         //find user file
@@ -72,6 +72,16 @@ class DataManagerDB {
         }
 
         return code;
+    }    
+    async loadOrCreate(id) {
+        try {
+            let item = await this.loadByUserId(id);
+            return item.data;
+        } catch (ex) {
+            let accessCode = await this.save(id, {});
+            let item = await this.loadByUserId(id);
+            return item.data;
+        }
     }
     async loadByUserId(id) {
         const params = {
@@ -98,9 +108,9 @@ class DataManagerDB {
             ExpressionAttributeValues: { ':id': id }
         };
         let results = await this.dynamoDb.query(params).promise();
-       
+
         //todo: there should not be duplicates but the code does not gerentee race conditions
-        if(results.Items.length > 0) {
+        if (results.Items.length > 0) {
             let item = results.Items[0];
             //  //insert accessCode in the json data.
             // let data = null;

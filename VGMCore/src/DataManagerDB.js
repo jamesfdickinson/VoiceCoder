@@ -1,15 +1,12 @@
 const AWS = require('aws-sdk');
-const config = require('./config/config.js');
 const randomstring = require("randomstring");
-
-
 //https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs/issues/359
 //https://medium.com/@Keithweaver_/using-aws-dynamodb-using-node-js-fd17cf1724e0
 class DataManagerDB {
-    constructor() {
+    constructor(config) {
+        this.tableName = config.aws_table_name;
         AWS.config.update(config.aws_remote_config);
         this.dynamoDb = new AWS.DynamoDB.DocumentClient();
-        this.baseUrl = "https://voicecoder.net";
     }
 
     async save(userId, dataP) {
@@ -29,7 +26,7 @@ class DataManagerDB {
         //save data
         data.accessCode = accessCode;
         const params = {
-            TableName: config.aws_table_name,
+            TableName: this.tableName,
             Item: {
                 "userId": userId,
                 "accessCode": accessCode,
@@ -37,11 +34,8 @@ class DataManagerDB {
             }
         };
         let results = await this.dynamoDb.put(params).promise();
-
-     
         return accessCode;
     }
-
     async getNewAccessCode() {
         let code = null;
         //try 5 times to get a short code
@@ -91,7 +85,7 @@ class DataManagerDB {
     }
     async loadByUserId(id) {
         const params = {
-            TableName: config.aws_table_name,
+            TableName: this.tableName,
             Key: {
                 'userId': id
             }
@@ -108,7 +102,7 @@ class DataManagerDB {
     }
     async loadByAccessCode(id) {
         const params = {
-            TableName: config.aws_table_name,
+            TableName: this.tableName,
             IndexName: 'accessCode-index',
             KeyConditionExpression: 'accessCode = :id',
             ExpressionAttributeValues: { ':id': id }
